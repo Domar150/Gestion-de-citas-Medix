@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.titulo {
+  font-size: 2rem;
+  color: var(--brand);
+  text-align: left;          /* corregido (antes era '0') */
+  margin-bottom: 2rem;
+}

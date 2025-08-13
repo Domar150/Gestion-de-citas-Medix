@@ -1,0 +1,18 @@
+/* Botón flotante para alternar el tema */
+.themeToggleBtn {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow);
+  z-index: 1000;
+  font-size: 14px;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+}
+.themeToggleBtn:hover {
+  background-color: var(--accent-hover);
+}

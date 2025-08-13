@@ -1,0 +1,41 @@
+/* Estilos de la tarjeta de citas */
+.citaCard {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin: 1rem;
+  box-shadow: 0 4px 10px var(--shadow);
+  border-left: 5px solid var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.citaCard:hover {
+  transform: scale(1.01);
+}
+
+.citaCard h3 {
+  margin-top: 0;
+  color: var(--brand);
+  font-size: 1.4rem;
+}
+
+.citaCard p {
+  margin: 0.3rem 0;
+  color: var(--text-secondary);
+}
+
+.citaCard button {
+  margin-top: 1rem;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  border: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.citaCard button:hover {
+  background-color: var(--accent-hover);
+}

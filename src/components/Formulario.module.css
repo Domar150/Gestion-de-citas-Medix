@@ -1,0 +1,73 @@
+/* Estilos del formulario */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 0.5rem;
+  padding-top: 1rem; 
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--brand);
+  text-align: center;
+}
+
+.formContainer {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+}
+
+.input,
+.select,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+}
+
+.button {
+  padding: 0.7rem;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--accent-hover);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
+}
