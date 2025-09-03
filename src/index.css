@@ -1,13 +1,17 @@
 :root {
+  /* Fuente y estilos básicos de texto */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  /* Mejoras de legibilidad */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Enlaces con color de acento */
 a {
   font-weight: 500;
   color: var(--accent);
@@ -17,6 +21,7 @@ a:hover {
   color: var(--accent-hover);
 }
 
+/* Configuración global del body */
 html, body {
   margin: 0;
   min-width: 320px;
@@ -25,7 +30,7 @@ html, body {
   color: var(--text-primary);
 }
 
-/* Botón genérico (los componentes también tienen los suyos) */
+/* Estilos genéricos de botones */
 button {
   border-radius: 8px;
   border: 1px solid var(--border);
@@ -42,13 +47,12 @@ button:hover {
   background-color: var(--accent-hover);
   border-color: var(--border);
 }
-
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Marca de agua */
+/* Marca de agua en todo el fondo */
 body {
   position: relative;
 }
@@ -61,7 +65,7 @@ body::before {
   height: 100%;
   background: url("/watermark.png") no-repeat left center;
   background-size: 50% auto;
-  opacity: 0.05;
-  pointer-events: none;
-  z-index: 0; /* detrás del contenido */
+  opacity: 0.05; /* transparencia */
+  pointer-events: none; /* no interfiere con clics */
+  z-index: 0; /* detrás de todo */
 }

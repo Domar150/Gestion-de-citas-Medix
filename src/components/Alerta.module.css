@@ -1,34 +1,41 @@
-/* Estilos para las alertas */
+/* Alerta.module.css
+   Estilos de la tarjeta flotante de alerta (éxito / error).
+   Aparece al fondo a la derecha con una animación suave de entrada y salida.
+*/
+
 .alerta {
-  position: fixed;
+  position: fixed;         /* se mantiene flotando aunque hagas scroll */
   bottom: 20px;
   right: 20px;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  z-index: 2000;
+  padding: 1rem 1.5rem;    /* espacio interno cómodo para el texto */
+  border-radius: 8px;      /* esquinas redondeadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* sombrita sutil */
+  background-color: #fff;  /* fondo claro */
+  z-index: 2000;           /* por encima del contenido normal */
   display: flex;
   align-items: center;
   gap: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 0;              /* inicia invisible para animación */
+  transform: translateY(20px); /* arranca un poco más abajo */
+  /* Animación combinada: entra en 0.3s y luego programa salida a los 2.7s */
   animation: fadeIn 0.3s forwards, fadeOut 0.3s 2.7s forwards;
 }
 
+/* Variantes de estado: éxito y error (marcador de color en el borde izquierdo) */
 .alerta.exito {
-  border-left: 5px solid #28a745; /* Marca verde para éxito */
+  border-left: 5px solid #28a745; /* verde éxito */
 }
 
 .alerta.error {
-  border-left: 5px solid #dc3545; /* Marca roja para errores*/
+  border-left: 5px solid #dc3545; /* rojo error */
 }
 
 .mensaje {
   color: #333;
-  font-weight: bold;
+  font-weight: bold; /* resalta el texto */
 }
 
+/* Animación: aparece desde abajo y se vuelve visible */
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -36,6 +43,7 @@
   }
 }
 
+/* Animación: se desvanece y baja un poco antes de ocultarse */
 @keyframes fadeOut {
   to {
     opacity: 0;

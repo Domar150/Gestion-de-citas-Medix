@@ -1,12 +1,16 @@
+/* ListaCita.module.css
+   Grid para listar tarjetas de citas y un título destacado de la sección.
+*/
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 1rem;                              /* separación entre tarjetas */
 }
 
 .titulo {
   font-size: 2rem;
   color: var(--brand);
-  text-align: left;          /* corregido (antes era '0') */
+  text-align: left;          /* alineado a la izquierda */
   margin-bottom: 2rem;
 }

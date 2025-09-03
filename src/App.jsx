@@ -5,16 +5,17 @@ import Formulario from './components/Formulario';
 import ListaCitas from './components/ListaCitas';
 import Alerta from './components/Alerta';
 import ThemeToggle from './components/ThemeToggle';
+import ApiDemo from './components/ApiDemo';
+import MedixData from './components/MedixData';
 
-import './components/theme.css'; // << variables globales (light/dark)
+import './components/theme.css';
 import './App.css';
 
-function App() {
+export default function App() {
   const [citas, setCitas] = useState(() => {
     const local = localStorage.getItem('citas');
     return local ? JSON.parse(local) : [];
   });
-
   const [alerta, setAlerta] = useState({ mensaje: '', tipo: '' });
 
   useEffect(() => {
@@ -23,20 +24,17 @@ function App() {
 
   const agregarCita = (cita) => {
     const nuevaCita = { ...cita, id: Date.now() };
-    setCitas([...citas, nuevaCita]);
+    setCitas(prev => [...prev, nuevaCita]);
     setAlerta({ mensaje: 'Paciente registrado', tipo: 'exito' });
   };
 
   const eliminarCita = (id) => {
-    setCitas(citas.filter((c) => c.id !== id));
+    setCitas(prev => prev.filter(c => c.id !== id));
     setAlerta({ mensaje: 'Paciente eliminado', tipo: 'exito' });
   };
 
   const actualizarCita = (id, nuevaCita) => {
-    const citasActualizadas = citas.map((cita) =>
-      cita.id === id ? { ...cita, ...nuevaCita } : cita
-    );
-    setCitas(citasActualizadas);
+    setCitas(prev => prev.map(c => c.id === id ? { ...c, ...nuevaCita } : c));
     setAlerta({ mensaje: 'Paciente modificado', tipo: 'exito' });
   };
 
@@ -45,6 +43,7 @@ function App() {
   return (
     <div className="container">
       <Header />
+
       <main className="main">
         <Formulario agregarCita={agregarCita} />
         <ListaCitas
@@ -53,11 +52,18 @@ function App() {
           actualizarCita={actualizarCita}
         />
       </main>
+
+      <section style={{ marginTop: 24 }}>
+        <ApiDemo />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <MedixData />
+      </section>
+
       <Alerta mensaje={alerta.mensaje} tipo={alerta.tipo} onClose={cerrarAlerta} />
       <ThemeToggle />
       <Footer />
     </div>
   );
 }
-
-export default App;

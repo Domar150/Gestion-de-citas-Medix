@@ -1,12 +1,15 @@
-/* Estilos de la tarjeta de citas */
+/* Cita.module.css
+   Estilos de la tarjeta que muestra/edita cada cita.
+*/
+
 .citaCard {
-  background-color: var(--bg-card);
+  background-color: var(--bg-card);    /* color de tarjeta (modo claro/oscuro) */
   border-radius: 8px;
   padding: 1.2rem;
   margin: 1rem;
-  box-shadow: 0 4px 10px var(--shadow);
-  border-left: 5px solid var(--accent);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 10px var(--shadow);/* sombra suave */
+  border-left: 5px solid var(--accent);/* franja de color para acento visual */
+  transition: transform 0.2s ease;     /* sutil efecto al pasar el mouse */
 }
 
 .citaCard:hover {
@@ -15,19 +18,19 @@
 
 .citaCard h3 {
   margin-top: 0;
-  color: var(--brand);
+  color: var(--brand);                  /* color de marca para títulos */
   font-size: 1.4rem;
 }
 
 .citaCard p {
   margin: 0.3rem 0;
-  color: var(--text-secondary);
+  color: var(--text-secondary);         /* texto secundario más suave */
 }
 
 .citaCard button {
   margin-top: 1rem;
-  background-color: var(--accent);
-  color: var(--accent-contrast);
+  background-color: var(--accent);      /* color principal para CTA */
+  color: var(--accent-contrast);        /* contraste de texto */
   border: 1px solid var(--border);
   padding: 0.6rem 1rem;
   border-radius: 4px;

@@ -1,21 +1,28 @@
-/* Variables globales del tema */
+/* theme.css
+   Variables y estilos base para soportar modo claro/oscuro.
+   - Usamos data-theme en <html> para alternar entre :root (light) y :root[data-theme="dark"].
+   - Las variables se consumen en todos los componentes CSS Modules.
+*/
+
+/* Variables por defecto (modo claro) */
 :root,
 :root[data-theme="light"] {
-  --bg-page: #f8f9fa;
-  --bg-card: #ffffff;
-  --bg-input: #ffffff;
-  --text-primary: #0d1b2a;
-  --text-secondary: #1f2937;
+  --bg-page: #f8f9fa;         /* fondo general de la página */
+  --bg-card: #ffffff;         /* fondo de tarjetas */
+  --bg-input: #ffffff;        /* fondo de inputs */
+  --text-primary: #0d1b2a;    /* texto principal */
+  --text-secondary: #1f2937;  /* texto secundario */
   --brand: #0d1b2a;           /* color de títulos */
   --accent: #2f06b8;          /* botones / links */
-  --accent-hover: #4b2fd6;
-  --accent-contrast: #ffffff;
-  --warning: #d90429;         /* subtítulo rojo del header */
-  --shadow: rgba(0, 0, 0, 0.15);
-  --border: #cbd5e1;
-  color-scheme: light;
+  --accent-hover: #4b2fd6;    /* hover de botones/links */
+  --accent-contrast: #ffffff; /* texto encima de botones de acento */
+  --warning: #d90429;         /* por ejemplo, subtítulo rojo del header */
+  --shadow: rgba(0, 0, 0, 0.15); /* sombra suave */
+  --border: #cbd5e1;          /* bordes neutros */
+  color-scheme: light;        /* pista al navegador (formularios, etc.) */
 }
 
+/* Variables para modo oscuro */
 :root[data-theme="dark"] {
   --bg-page: #0b0f14;
   --bg-card: #0f141a;
@@ -23,33 +30,34 @@
   --text-primary: #e6e4df;
   --text-secondary: #d8d5cf;
   --brand: #f1dca7;           /* tono cálido para títulos */
-  --accent: #e09f3e;          /* ámbar, menos luz azul */
+  --accent: #e09f3e;          /* ámbar: menos luz azul */
   --accent-hover: #d18426;
-  --accent-contrast: #1b1b1b;
+  --accent-contrast: #1b1b1b; /* texto oscuro sobre botón claro */
   --warning: #ef6351;
   --shadow: rgba(0, 0, 0, 0.7);
   --border: #27333f;
   color-scheme: dark;
 }
 
-/* Fondo y texto base */
+/* Fondo y texto base del documento (transiciones suaves al alternar tema) */
 html, body {
   background-color: var(--bg-page);
   color: var(--text-primary);
   transition: background-color .2s ease, color .2s ease;
 }
 
-/* Inputs y placeholders */
+/* Inputs y placeholders armonizados con el tema */
 input, select, textarea {
   background-color: var(--bg-input);
   color: var(--text-primary);
   border-color: var(--border);
 }
 input::placeholder, textarea::placeholder {
+  /* color-mix suaviza el placeholder para que no ‘grite’ */
   color: color-mix(in srgb, var(--text-secondary) 60%, transparent);
 }
 
-/* Botones base por si hay estilos sueltos */
+/* Transiciones base para botones genéricos (por si algún botón no usa módulos) */
 button {
   transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 }

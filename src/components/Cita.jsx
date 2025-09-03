@@ -1,9 +1,12 @@
-//Aqui se aplica la logica de poner los datos de la cita en una tarjeta para editar
+// Cita.jsx
+// Tarjeta que muestra los datos de una cita/paciente.
+// Permite alternar entre modo lectura y edición para actualizar la información.
 
 import { useState } from 'react';
 import styles from './Cita.module.css';
 
 function Cita({ cita, eliminarCita, actualizarCita }) {
+  // Desestructuramos la cita que llega por props
   const {
     id,
     nombre: initialNombre,
@@ -16,7 +19,10 @@ function Cita({ cita, eliminarCita, actualizarCita }) {
     horaCita: initialHoraCita,
   } = cita;
 
+  // Estado para saber si estamos editando o solo viendo
   const [editando, setEditando] = useState(false);
+
+  // Copia editable de los campos de la cita
   const [formData, setFormData] = useState({
     nombre: initialNombre,
     fechaNacimiento: initialFechaNacimiento,
@@ -28,11 +34,13 @@ function Cita({ cita, eliminarCita, actualizarCita }) {
     horaCita: initialHoraCita,
   });
 
+  // Maneja cambios de cualquier input (por nombre del campo)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Guarda cambios: llama al padre con la info nueva y vuelve a modo lectura
   const handleGuardar = () => {
     actualizarCita(id, formData);
     setEditando(false);
@@ -41,6 +49,7 @@ function Cita({ cita, eliminarCita, actualizarCita }) {
   return (
     <div className={styles.citaCard}>
       {editando ? (
+        // Modo edición: mostramos inputs para todos los campos
         <>
           <input name="nombre" value={formData.nombre} onChange={handleChange} />
           <input name="edad" value={formData.edad} onChange={handleChange} />
@@ -53,6 +62,7 @@ function Cita({ cita, eliminarCita, actualizarCita }) {
           <button onClick={handleGuardar}>Guardar</button>
         </>
       ) : (
+        // Modo lectura: mostramos la información en texto
         <>
           <h3>{formData.nombre}</h3>
           <p><strong>Edad:</strong> {formData.edad} años</p>
@@ -65,6 +75,7 @@ function Cita({ cita, eliminarCita, actualizarCita }) {
           <button onClick={() => setEditando(true)}>Modificar</button>
         </>
       )}
+      {/* Eliminar está disponible en ambos modos */}
       <button onClick={() => eliminarCita(id)}>Eliminar</button>
     </div>
   );

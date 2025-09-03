@@ -1,18 +1,23 @@
-/* Botón flotante para alternar el tema */
+/* ThemeToggle.module.css
+   Estilos del botón flotante que alterna el tema.
+   - Posicionado abajo/izquierda para no tapar otros controles.
+*/
+
 .themeToggleBtn {
-  position: fixed;
+  position: fixed;                 /* siempre visible aunque haya scroll */
   bottom: 1rem;
   left: 1rem;
-  padding: .55rem .9rem;
-  border-radius: 999px;
+  padding: .55rem .9rem;           /* tamaño cómodo al clic */
+  border-radius: 999px;            /* píldora circular */
   border: 1px solid var(--border);
   cursor: pointer;
   box-shadow: 0 2px 8px var(--shadow);
-  z-index: 1000;
+  z-index: 1000;                   /* por encima del contenido normal */
   font-size: 14px;
-  background-color: var(--accent);
+  background-color: var(--accent); /* usa colores del tema activo */
   color: var(--accent-contrast);
 }
+
 .themeToggleBtn:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--accent-hover); /* feedback en hover */
 }
